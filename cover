@@ -8,6 +8,7 @@
 <link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
+<div class="cover"><br/></div>
 <div class="cover">
 <img alt="cover" src="../Images/cover.jpg"/>
 </div>
