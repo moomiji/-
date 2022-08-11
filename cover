@@ -1,16 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+__version__: 1
+debug: false
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>Cover</title>
-<link href="../Styles/Style.css" type="text/css" rel="stylesheet"/>
-</head>
-<body>
-<div class="cover"><br/></div>
-<div class="cover">
-<img alt="cover" src="../Images/cover.jpg"/>
-</div>
-</body>
-</html>
+# 设备连接
+device:
+  # ADB server 端口
+  # 如 ADB server 端口冲突（表现为 server 频繁退出），可尝试更换端口。
+  adb_server: 127.0.0.1:5037
+
+  # ADB 可执行文件
+  # 需要启动 adb server 时，使用的 adb 命令。
+  # 为空时则尝试: 1. PATH 中的 adb；2. ADB/{sys.platform}/adb; 3. 查找 Android SDK（ANDROID_SDK_ROOT 和默认安装目录）
+  adb_binary: ''
+
+  # 只连接特定设备
+  # adb_always_use_device: 192.168.1.202:33445
+
+  # 额外的设备枚举逻辑
+  extra_enumerators:
+    # 尝试探测 Bluestacks (Hyper-V) 设备
+    bluestacks_hyperv: true
+
+    # 尝试连接 ADB 端口
+    # 在设备列表中追加以下 ADB TCP/IP 端口
+    append:
+    - 192.168.1.202:33445
+    - 127.0.0.1:5555
+    - 127.0.0.1:7555
+  compat_screenshot: false
+
+  # 尝试优化 ADB 数据传输
+  # 通过 adb 传输模拟器截图数据较慢时，尝试绕过 adbd 传输截图数据
+  # 模拟器判断逻辑：1. 设备名称以 "emulator-" 或 "127.0.0.1:" 开头；2. ro.product.board 包含 goldfish（SDK emulator）或存在 vboxguest 模块
+  workaround_slow_emulator_adb: auto
+
+  # 截图缓存
+  # 如果两次截图间隔小于上次截图耗时，则直接使用上次的截图
+  cache_screenshot: true
+
+# 作战模块
+# 回复体力设置已移除，请使用命令行参数或在 GUI 中设置
+combat:
+  # 企鹅物流数据统计
+  penguin_stats:
+    # 掉落汇报
+    # 将关卡掉落上传到企鹅物流数据 (penguin-stats.io)
+    enabled: true
+
+    # 用户 ID
+    # 用户 ID 仅用来标记您的上传身份。在不同设备上使用此 ID 登录，可让掉落数据集中于一个账号下，方便管理上传以及查看个人掉落数据。如果为空，则在下一次上传时创建并存储到配置中。
+    uid: '23296615'
+
+    # 汇报特殊活动物品
+    # 汇报掉率随活动进度变化的特殊活动物品
+    report_special_item: true
+
+  # 代理指挥失误
+  mistaken_delegation:
+    # 以 2 星结算关卡
+    settle: false
+
+    # 跳过失误关卡
+    # 跳过失误关卡的后续次数
+    skip: true
+
+# 作战计划
+plan:
+  # 计算方式
+  # online: 从企鹅物流数据统计接口获取刷图计划
+  # local-aog: 本地计算刷图计划, 使用 aog 推荐的关卡优化
+  calc_mode: online
+
+# 关卡导航
+stage_navigator:
+  # 自动选关使用的 OCR 后端
+  ocr_backend: svm
+
+# OCR 设置（即将弃用）
+ocr:
+  # 默认 OCR 后端
+  backend: auto
+
+  # 百度 OCR API 设置
+  baidu_api:
+    enable: false
+    app_id: AAAZZZ
+    app_key: AAAZZZ
+    app_secret: AAAZZZ
+
+# 一键长草设置
+grass_on_aog:
+  # 不刷以下材料
+  exclude:
+  - 固源岩组
