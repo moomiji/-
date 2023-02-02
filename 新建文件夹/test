@@ -1,0 +1,87 @@
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<package version="2.0" unique-identifier="BookId" xmlns="http://www.idpf.org/2007/opf">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:identifier id="BookId" opf:scheme="UUID">urn:uuid:4b326d03-5dfc-4527-8d64-f6e4cfa34a95</dc:identifier>
+    <dc:title>重启咲良田3</dc:title>
+    <dc:creator>河野裕</dc:creator>
+    <dc:language>zh</dc:language>
+    <dc:subject>轻小说</dc:subject>
+    <meta name="Sigil version" content="0.9.10" />
+    <dc:date opf:event="publication">2018-11</dc:date>
+    <dc:date opf:event="modification">2018-12-15</dc:date>
+    <meta name="cover" content="cover.jpg" />
+  </metadata>
+  <manifest>
+    <item id="cover.jpg" href="Images/cover.jpg" media-type="image/jpeg"/>
+    <item id="i001.jpg" href="Images/i001.jpg" media-type="image/jpeg"/>
+    <item id="kuchie-001.jpg" href="Images/kuchie-001.jpg" media-type="image/jpeg"/>
+    <item id="kuchie-002.jpg" href="Images/kuchie-002.jpg" media-type="image/jpeg"/>
+    <item id="kuchie-003.jpg" href="Images/kuchie-003.jpg" media-type="image/jpeg"/>
+    <item id="p045.jpg" href="Images/p045.jpg" media-type="image/jpeg"/>
+    <item id="p105.jpg" href="Images/p105.jpg" media-type="image/jpeg"/>
+    <item id="p133.jpg" href="Images/p133.jpg" media-type="image/jpeg"/>
+    <item id="p169.jpg" href="Images/p169.jpg" media-type="image/jpeg"/>
+    <item id="p255.jpg" href="Images/p255.jpg" media-type="image/jpeg"/>
+    <item id="p281.jpg" href="Images/p281.jpg" media-type="image/jpeg"/>
+    <item id="p283.jpg" href="Images/p283.jpg" media-type="image/jpeg"/>
+    <item id="p324.jpg" href="Images/p324.jpg" media-type="image/jpeg"/>
+    <item id="p334.jpg" href="Images/p334.jpg" media-type="image/jpeg"/>
+    <item id="p343.jpg" href="Images/p343.jpg" media-type="image/jpeg"/>
+    <item id="p358.jpg" href="Images/p358.jpg" media-type="image/jpeg"/>
+    <item id="sakura3_big.jpg" href="Images/sakura3_big.jpg" media-type="image/jpeg"/>
+    <item id="t001.jpg" href="Images/t001.jpg" media-type="image/jpeg"/>
+    <item id="t002.jpg" href="Images/t002.jpg" media-type="image/jpeg"/>
+    <item id="t003.jpg" href="Images/t003.jpg" media-type="image/jpeg"/>
+    <item id="Style.css" href="Styles/Style.css" media-type="text/css"/>
+    <item id="author.xhtml" href="Text/author.xhtml" media-type="application/xhtml+xml"/>
+    <item id="chapter1.xhtml" href="Text/chapter1.xhtml" media-type="application/xhtml+xml"/>
+    <item id="chapter2.xhtml" href="Text/chapter2.xhtml" media-type="application/xhtml+xml"/>
+    <item id="chapter2-1.xhtml" href="Text/chapter2-1.xhtml" media-type="application/xhtml+xml"/>
+    <item id="chapter3.xhtml" href="Text/chapter3.xhtml" media-type="application/xhtml+xml"/>
+    <item id="chapter3-1.xhtml" href="Text/chapter3-1.xhtml" media-type="application/xhtml+xml"/>
+    <item id="chapter4.xhtml" href="Text/chapter4.xhtml" media-type="application/xhtml+xml"/>
+    <item id="chapter4-1.xhtml" href="Text/chapter4-1.xhtml" media-type="application/xhtml+xml"/>
+    <item id="chapter5.xhtml" href="Text/chapter5.xhtml" media-type="application/xhtml+xml"/>
+    <item id="characters.xhtml" href="Text/characters.xhtml" media-type="application/xhtml+xml"/>
+    <item id="contents.xhtml" href="Text/contents.xhtml" media-type="application/xhtml+xml"/>
+    <item id="cover.xhtml" href="Text/cover.xhtml" media-type="application/xhtml+xml"/>
+    <item id="illus01.xhtml" href="Text/illus01.xhtml" media-type="application/xhtml+xml"/>
+    <item id="illus01-1.xhtml" href="Text/illus01-1.xhtml" media-type="application/xhtml+xml"/>
+    <item id="illus02.xhtml" href="Text/illus02.xhtml" media-type="application/xhtml+xml"/>
+    <item id="illus03.xhtml" href="Text/illus03.xhtml" media-type="application/xhtml+xml"/>
+    <item id="illus04.xhtml" href="Text/illus04.xhtml" media-type="application/xhtml+xml"/>
+    <item id="message.xhtml" href="Text/message.xhtml" media-type="application/xhtml+xml"/>
+    <item id="postscript.xhtml" href="Text/postscript.xhtml" media-type="application/xhtml+xml"/>
+    <item id="summary.xhtml" href="Text/summary.xhtml" media-type="application/xhtml+xml"/>
+    <item id="title.xhtml" href="Text/title.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="cover.xhtml" properties="duokan-page-fullscreen"/>
+    <itemref idref="message.xhtml"/>
+    <itemref idref="summary.xhtml"/>
+    <itemref idref="author.xhtml"/>
+    <itemref idref="illus01.xhtml"/>
+    <itemref idref="illus01-1.xhtml"/>
+    <itemref idref="illus02.xhtml"/>
+    <itemref idref="illus03.xhtml"/>
+    <itemref idref="illus04.xhtml"/>
+    <itemref idref="title.xhtml"/>
+    <itemref idref="contents.xhtml"/>
+    <itemref idref="characters.xhtml"/>
+    <itemref idref="chapter1.xhtml"/>
+    <itemref idref="chapter2.xhtml"/>
+    <itemref idref="chapter2-1.xhtml"/>
+    <itemref idref="chapter3.xhtml"/>
+    <itemref idref="chapter3-1.xhtml"/>
+    <itemref idref="chapter4.xhtml"/>
+    <itemref idref="chapter4-1.xhtml"/>
+    <itemref idref="chapter5.xhtml"/>
+    <itemref idref="postscript.xhtml"/>
+  </spine>
+  <guide>
+    <reference type="cover" title="封面" href="Text/cover.xhtml"/>
+  </guide>
+</package>
