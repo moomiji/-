@@ -23,6 +23,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Add files to git
         run: |
+          echo "a" >> test
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git status
