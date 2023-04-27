@@ -19,8 +19,8 @@ jobs:
       - name: Add files to git
         run: |
           echo "a" >> test
-          git config user.name "$env.GITHUB_ACTOR"
-          git config user.email "$env.GITHUB_ACTOR@users.noreply.github.com"
+          git config user.name "$env:RUNNER_OS"
+          git config user.email "$env:RUNNER_OS@users.noreply.github.com"
           git status
           git add .
           git commit -m "chore: Update Game Resources"
