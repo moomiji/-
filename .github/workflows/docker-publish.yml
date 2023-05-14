@@ -24,9 +24,4 @@ jobs:
           git status
           git add .
           git commit -m "chore: Update Game Resources"
-          
-      - name: Push changes # push the output folder to your repo
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: false
+          echo "$env:GITHUB_RUN_ID"
