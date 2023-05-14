@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Add files to git
-        run: |
+      - run: |
           echo "a" >> test
           git config user.name "$env:GITHUB_ACTOR"
           git config user.email "$env:GITHUB_ACTOR@users.noreply.github.com"
