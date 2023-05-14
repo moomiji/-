@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Add files to git
-      - run: |
+        run: |
           echo "a" >> test
           git config user.name "$env:GITHUB_ACTOR"
           git config user.email "$env:GITHUB_ACTOR@users.noreply.github.com"
@@ -26,7 +26,5 @@ jobs:
           git commit -m "chore: Update Game Resources"
           echo "$env:GITHUB_RUN_ID"
           gh api --method DELETE -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/moomiji/-/actions/runs/"$env:GITHUB_RUN_ID"
-      - env:
+        env:
           GH_TOKEN: ${{ github.token }}
-          
-          
