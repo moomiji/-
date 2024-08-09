@@ -21,7 +21,7 @@ jobs:
 
       - name: Run a command that might fail
         run: |
-          exit 1 || echo "STEP_FAILED=true" >> $GITHUB_ENV
+          false || echo "STEP_FAILED=true" >> $GITHUB_ENV && exit 1
         continue-on-error: true
 
       - name: This step will still run
