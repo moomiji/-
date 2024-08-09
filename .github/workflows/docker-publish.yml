@@ -13,13 +13,24 @@ permissions: write-all
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      STEP_FAILED: false
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Run a command that might fail
-        run: exit 78
+        run: |
+          exit 1 || echo "STEP_FAILED=true" >> $GITHUB_ENV
         continue-on-error: true
 
       - name: This step will still run
         run: echo "This step runs even if the previous step fails."
+
+      - name: Check for failure and fail the job if any step failed
+        run: |
+          if [ "$STEP_FAILED" = "true" ]; then
+            echo "One or more steps failed."
+            exit 1
+          fi
+        if: always()
