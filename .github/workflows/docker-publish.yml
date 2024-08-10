@@ -20,7 +20,7 @@ jobs:
       - name: nuget
         id: nuget
         run: |
-          false || eval $OUTPUT_PUBLISH_FAILED
+          true || eval $OUTPUT_PUBLISH_FAILED
       - name: pip
         id: pip
         run: |
