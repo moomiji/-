@@ -14,14 +14,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      STEP_FAILED: false
+      PACKAGES_PUBLISH_FAILED: false
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Run a command that might fail
         run: |
-          false || echo "STEP_FAILED=true" >> $GITHUB_ENV
+          false || echo "PACKAGES_PUBLISH_FAILED=true" >> $GITHUB_ENV
 
       - name: This step will still run
         run: echo "This step runs even if the previous step fails."
