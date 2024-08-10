@@ -21,17 +21,15 @@ jobs:
 
       - name: Run a command that might fail
         run: |
-          false || echo "STEP_FAILED=true" >> $GITHUB_ENV && exit 1
-        continue-on-error: true
+          false || echo "STEP_FAILED=true" >> $GITHUB_ENV
 
       - name: This step will still run
         run: echo "This step runs even if the previous step fails."
 
       - name: Check for failure and fail the job if any step failed
+        if: env.PACKAGES_PUBLISH_FAILED
         run: |
-          if [ "$STEP_FAILED" = "true" ]; then
-            curl -X POST \
-              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              -H "Accept: application/vnd.github.v3+json" \
-              https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/cancel
-          fi
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/cancel
