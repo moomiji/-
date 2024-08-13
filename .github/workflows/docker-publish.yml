@@ -27,6 +27,7 @@ jobs:
           true || eval $OUTPUT_PUBLISH_FAILED
 
       - name: This step will still run
+        if: False
         run: echo "This step runs even if the previous step fails."
 
       - name: Create issue if failed to publish packages
