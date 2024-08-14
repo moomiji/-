@@ -12,32 +12,8 @@ permissions: write-all
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    env:
-      OUTPUT_PUBLISH_FAILED: 'echo "failed=true" >> $GITHUB_OUTPUT && echo "::error::Failed to publish packages"'
+    runs-on: windows-latest
     steps:
-
-      - name: nuget
-        id: nuget
-        run: |
-          true || eval $OUTPUT_PUBLISH_FAILED
-      - name: pip
-        id: pip
-        run: |
-          true || eval $OUTPUT_PUBLISH_FAILED
-
-      - name: This step will still run
-        if: False
-        run: echo "This step runs even if the previous step fails."
-
-      - name: Create issue if failed to publish packages
-        if: steps.nuget.outputs.failed || steps.pip.outputs.failed
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'create-issue'
-          title: 'Failed to publish packages in ${{ needs.meta.outputs.tag }}'
-          body: |
-            Please manually publish the following packages:
-            ${{ steps.nuget.outputs.failed && '- nuget @moomiji' || '' }}
-            ${{ steps.pip.outputs.failed && '- pip @QiE2035' || '' }}
+      - run: echo ${{ secrets.github_token }}
+      - run: cd errorPath; echo ${{ secrets.github_token }}
 
