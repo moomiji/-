@@ -1,19 +1,26 @@
-name: Docker
+name: Update GITHUB_ENV Variable
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-on:
-  push:
-
-permissions: write-all
+on: [push]
 
 jobs:
-  build:
-    runs-on: windows-latest
+  update-env:
+    env:
+      MY_VAR: 111
+    runs-on: ubuntu-latest
+
     steps:
-      - run: echo ${{ secrets.github_token }}
-      - run: cd errorPath; echo ${{ secrets.github_token }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set initial value
+        run: echo "MY_VAR=initial_value" >> $GITHUB_ENV
+
+      - name: Print initial value
+        run: echo "MY_VAR is $MY_VAR"
+
+      - name: Update value
+        run: echo "MY_VAR=updated_value" >> $GITHUB_ENV
+
+      - name: Print updated value
+        run: echo "MY_VAR is $MY_VAR"
 
