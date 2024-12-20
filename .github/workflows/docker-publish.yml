@@ -4,23 +4,13 @@ on: [push]
 
 jobs:
   update-env:
-    env:
-      MY_VAR: 111
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set initial value
-        run: echo "MY_VAR=initial_value" >> $GITHUB_ENV
+        run: wget https://raw.githubusercontent.com/MaaAssistantArknights/design/main/logo/maa-logo_128x128.png
 
-      - name: Print initial value
-        run: echo "MY_VAR is $MY_VAR"
-
-      - name: Update value
-        run: echo "MY_VAR=updated_value" >> $GITHUB_ENV
-
-      - name: Print updated value
-        run: echo "MY_VAR is $MY_VAR"
 
