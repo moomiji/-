@@ -7,8 +7,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Set initial value
-        shell: bash
-        run: curl -OL https://raw.githubusercontent.com/MaaAssistantArknights/design/main/logo/maa-logo_128x128.png
-
-
+      - uses: ./.github/actions/publish_nodejs.yml
+        with:
+          access: public
+          token: 11111
+          dry-run: true
