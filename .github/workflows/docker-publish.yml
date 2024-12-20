@@ -15,7 +15,7 @@ jobs:
             branch: main
             name: MAA-nodejs-package
             path: assets/MAA-nodejs-package
-      - uses: moomiji/-/.github/actions/publish_nodejs.yml@master
+      - uses: moomiji/-/.github/actions@master
         with:
           access: public
           token: 11111
