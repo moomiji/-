@@ -11,6 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set initial value
+        shell: bash
         run: wget https://raw.githubusercontent.com/MaaAssistantArknights/design/main/logo/maa-logo_128x128.png
 
 
