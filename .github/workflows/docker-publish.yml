@@ -7,12 +7,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@v7
-        with:
-            repo: MaaXYZ/MaaFramework
-            workflow: build.yml
-            branch: main
-            name: MAA-nodejs-package
-            path: assets/MAA-nodejs-package
       - uses: moomiji/-/.github/actions@master
+        id: test
+      - if: false || steps.test.outputs.failed
+        run: echo ${{ steps.test.outputs.failed }}
