@@ -7,7 +7,24 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: moomiji/-/.github/actions@master
-        id: test
-      - if: steps.test.outputs.failed
-        run: echo ${{ steps.test.outputs.failed }}
+      - uses: nuget/setup-nuget@v2
+      - name: Download workflow artifact
+        uses: dawidd6/action-download-artifact@v7
+        with:
+            repo: MaaXYZ/MaaFramework
+            workflow: build.yml
+            branch: main
+            name: MAA-win-x86_64
+            path: assets/MAA-win-x86_64
+
+      - name: Nuget Pack
+        shell: bash
+        run: |
+            ls
+            cd assets/MAA-win-x86_64
+            ls
+            cd bin
+            ls
+            nuget pack Maa.Framework.Runtime.win-x64.nuspec \
+                -Verbosity detailed \
+                -Properties "root_path=."
