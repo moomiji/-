@@ -9,5 +9,5 @@ jobs:
     steps:
       - uses: moomiji/-/.github/actions@master
         id: test
-      - if: false || steps.test.outputs.failed
+      - if: steps.test.outputs.failed
         run: echo ${{ steps.test.outputs.failed }}
