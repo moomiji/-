@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <version>1.0.0</version>
+    <authors>MAA Team</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">LGPL-3.0-only</license>
+    <icon>maa-logo_128x128.png</icon>
+    <releaseNotes>Release notes are at https://github.com/MaaXYZ/MaaFramework/releases.</releaseNotes>
+    <copyright>Copyright © 2021-2024 MAA Team and Contributers. All rights reserved.</copyright>
+    <tags>MAA native runtimes C++ computer-vision black-box-testing</tags>
+    <id>Maa.Framework.Runtime.win-x64</id>
+    <title>MAA Framework Runtime for win-x64</title>
+    <description>Native binaries of MAA Framework Embedded for win-x64.</description>
+  </metadata>
+  <files>
+    <file src="$root_path$\assets\MAA-win-x86_64\bin\**" target="runtimes\win-x64\native" />
+  </files>
+</package>
