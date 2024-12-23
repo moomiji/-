@@ -20,11 +20,6 @@ jobs:
       - name: Nuget Pack
         shell: bash
         run: |
-            ls
-            cd assets/MAA-win-x86_64
-            ls
-            cd bin
-            ls
             nuget pack Maa.Framework.Runtime.win-x64.nuspec \
                 -Verbosity detailed \
                 -Properties "root_path=."
