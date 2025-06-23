@@ -1,0 +1,22 @@
+name: Test
+on:
+  push
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Install .NET SDKs
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10
+
+    - run: dotnet publish -c Release --self-contained true
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: my-artifact
+        path: bin/
