@@ -16,6 +16,6 @@ jobs:
 
     - run: |
         dotnet publish -c Release
-        cd bin/Release/net9.0/osx-x64/publish
+        cd bin/Release/net9.0/osx-arm64/publish
         ls
         ./ConsoleApp5
