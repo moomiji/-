@@ -1,0 +1,25 @@
+name: release
+
+on:
+  workflow_run:
+    workflows: ["Test"]
+    types: [completed]
+    branches:
+      - 'master'
+      - 'v*'
+
+jobs:
+    check_and_prepare:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        steps:
+            - uses: actions/checkout@v4
+            - name: Get workflow info
+              id: get_info
+              run: |
+                  run_id="${{ github.event.workflow_run.id }}"
+                  head_branch=$(gh run view $run_id --json headBranch --jq '.headBranch // empty')
+                  head_sha=$(gh run view $run_id --json headSha --jq '.headSha')
+                  echo $run_id
+                  echo $head_branch
+                  echo $head_sha
