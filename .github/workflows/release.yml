@@ -25,3 +25,4 @@ jobs:
                   echo $head_branch
                   echo $head_sha
                   echo ${{ github.event.workflow_run.conclusion }}
+                  echo ${{ github.event.workflow_run.head_branch }}
