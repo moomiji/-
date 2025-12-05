@@ -1,6 +1,6 @@
 name: Test
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   MyRun:
@@ -13,3 +13,8 @@ jobs:
         run: curl --fail -o dates.csv https://doesnotexist.com/dates.csv
       - name: Step Two
         run: date >> dates.csv
+  Test2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step Two
+        run: echo 2
