@@ -8,7 +8,6 @@ on:
 jobs:
     check_and_prepare:
         runs-on: ubuntu-latest
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         steps:
             - uses: actions/checkout@v4
             - name: Get workflow info
@@ -20,3 +19,4 @@ jobs:
                   echo $run_id
                   echo $head_branch
                   echo $head_sha
+                  echo ${{ github.event.workflow_run.conclusion }}
