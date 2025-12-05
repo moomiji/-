@@ -1,27 +1,15 @@
-name: Update GITHUB_ENV Variable
+name: Test
 
 on: [push]
 
 jobs:
-  update-env:
-    runs-on: windows-latest
+  MyRun:
+    runs-on: ubuntu-latest
 
+    continue-on-error: true
+    
     steps:
-      - uses: actions/checkout@v4
-      - uses: nuget/setup-nuget@v2
-      - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@v7
-        with:
-            repo: MaaXYZ/MaaFramework
-            workflow: build.yml
-            branch: main
-            name: MAA-win-x86_64
-            path: assets/MAA-win-x86_64
-
-      - name: Nuget Pack
-        shell: bash
-        run: |
-            rm -v ./assets/**/MaaPiCli* ./assets/**/MaaPiCli.exe MaaNode.node
-            nuget pack Maa.Framework.Runtime.win-x64.nuspec \
-                -Verbosity detailed \
-                -Properties "root_path=."
+      - name: Step One
+        run: curl --fail -o dates.csv https://doesnotexist.com/dates.csv
+      - name: Step Two
+        run: date >> dates.csv
