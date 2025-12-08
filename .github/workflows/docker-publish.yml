@@ -19,13 +19,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Step Two
+        id: set
         run: |
-          echo "tag=$tag
-          version=$version
-          is_release=$is_release
-          is_pre_release=$is_pre_release
-          build_config=$build_config
-          latest-plugin=${{ steps.latest-plugin.outputs.release }}" | tee -a "$GITHUB_OUTPUT" "meta-outputs.txt"
+          echo "
+            tag=111
+            version=$version
+            is_release=$is_release
+            is_pre_release=$is_pre_release
+            build_config=$build_config
+            latest-plugin=${{ steps.latest-plugin.outputs.release }}
+          " | tee -a "$GITHUB_OUTPUT" "meta-outputs.txt"
+      - run: |
+          ${{ steps.set.outputs.tag }}
       - uses: actions/upload-artifact@v4
         with:
             name: meta
