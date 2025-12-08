@@ -30,7 +30,7 @@ jobs:
           latest-plugin=${{ steps.latest-plugin.outputs.release }}
           " | tee -a "$GITHUB_OUTPUT" "meta-outputs.txt"
       - run: |
-          ${{ steps.set.outputs.tag }}
+          echo ${{ steps.set.outputs.tag }}
       - uses: actions/upload-artifact@v4
         with:
             name: meta
