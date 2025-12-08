@@ -22,12 +22,12 @@ jobs:
         id: set
         run: |
           echo "
-            tag=111
-            version=$version
-            is_release=$is_release
-            is_pre_release=$is_pre_release
-            build_config=$build_config
-            latest-plugin=${{ steps.latest-plugin.outputs.release }}
+          tag=111
+          version=$version
+          is_release=$is_release
+          is_pre_release=$is_pre_release
+          build_config=$build_config
+          latest-plugin=${{ steps.latest-plugin.outputs.release }}
           " | tee -a "$GITHUB_OUTPUT" "meta-outputs.txt"
       - run: |
           ${{ steps.set.outputs.tag }}
