@@ -26,6 +26,7 @@ jobs:
           issue-state: "all"
       - run: |
           echo ${{ steps.find-issues.outputs.issues }}
+          echo ${{ steps.find-issues.outputs.issues[0].number }}
           echo ${{ fromJSON(steps.find-issues.outputs.issues)[0] != null }}
           echo ${{ fromJSON(steps.find-issues.outputs.issues)[0].number }}
   Test3:
