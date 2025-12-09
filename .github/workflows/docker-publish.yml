@@ -21,17 +21,13 @@ jobs:
       - name: Step Two
         id: set
         run: |
-          echo "
-          tag=111
-          version=$version
-          is_release=$is_release
-          is_pre_release=$is_pre_release
-          build_config=$build_config
-          latest-plugin=${{ steps.latest-plugin.outputs.release }}
-          " | tee -a "$GITHUB_OUTPUT" "meta-outputs.txt"
+          echo 'issues<<EOF' >> $GITHUB_OUTPUT
+          echo '[
+            {number: 1, auth: 'x', body: 'xxx', body: 'xxx', state: 'open', assignees: ['x1', 'x2'], created: '', updated: ''},
+            {number: 2, auth: 'x', body: 'xxx', body: 'xxx', state: 'closed', assignees: ['x1', 'x2'], created: '', updated: ''},
+          ]' >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
       - run: |
-          echo ${{ steps.set.outputs.tag }}
-      - uses: actions/upload-artifact@v4
-        with:
-            name: meta
-            path: "meta-outputs.txt"
+          echo ${{ steps.set.outputs.issues }}
+          echo ${{ fromJSON(steps.find-issues.outputs.issues) }}
+          echo ${{ fromJSON(steps.find-issues.outputs.issues)[0].number }}
