@@ -18,15 +18,12 @@ jobs:
   Test2:
     runs-on: ubuntu-latest
     steps:
-      - name: Step Two
-        id: set
-        run: |
-          echo 'issues<<EOF' >> $GITHUB_OUTPUT
-          echo '[
-            {number: 1, auth: 'x', body: 'xxx', body: 'xxx', state: 'open', assignees: ['x1', 'x2'], created: '', updated: ''},
-            {number: 2, auth: 'x', body: 'xxx', body: 'xxx', state: 'closed', assignees: ['x1', 'x2'], created: '', updated: ''},
-          ]' >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+      - name: Search for existing release-failure issue
+        id: find-issues
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: "find-issues"
+          issue-state: "all"
       - run: |
           echo ${{ steps.set.outputs.issues }}
           echo ${{ fromJSON(steps.find-issues.outputs.issues) }}
