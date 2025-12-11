@@ -5,40 +5,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  MyRun:
-    runs-on: ubuntu-latest
-
-    continue-on-error: true
-    
-    steps:
-      - name: Step One
-        run: curl --fail -o dates.csv https://doesnotexist.com/dates.csv
-      - name: Step Two
-        run: date >> dates.csv
   Test2:
     runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.publish.outcome }}
     steps:
-      - name: Search for existing release-failure issue
-        id: find-issues
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: "find-issues"
-          issue-state: "all"
-      - run: |
-          echo ${{ steps.find-issues.outputs.issues }}
-          echo ${{ steps.find-issues.outputs.issues[0].number }}
-          echo ${{ fromJSON(steps.find-issues.outputs.issues)[0] != null }}
-          echo ${{ fromJSON(steps.find-issues.outputs.issues)[0].number }}
+      - id: publish
+        if: false
+        run: |
+          echo 1
   Test3:
     runs-on: ubuntu-latest
+    needs: Test2
     steps:
-      - name: Search for existing release-failure issue
-        id: find-issues
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: "find-issues"
-          issue-state: "open"
       - run: |
-          echo ${{ steps.find-issues.outputs.issues }}
-          echo ${{ fromJSON(steps.find-issues.outputs.issues)[0] != null }}
-          echo ${{ fromJSON(steps.find-issues.outputs.issues)[0].number }}
+          echo ${{ needs.Test2.outputs.result }}
